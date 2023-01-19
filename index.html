@@ -1,0 +1,129 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node-Day2</title>
+    <style>
+        table,tr,th,td{
+            border:1px solid grey
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>Node-Day2</h1>
+    </center>
+    <h3>1.Explain CORS, Implement CORS.</h3>
+    <p>A. <strong>Cross Origin Resource Sharing </strong> is a mechanism that supports secure requests and data transfers from outside origins(domain,scheme,port).In other words, CORS is a browser security feature that restricts cross-origin HTTP requests with other servers and specifies which domains access your resources.
+    <br>
+    <strong>Implementation :</strong><br>
+    <pre>
+        const cors = require('cors');
+        app.use(cors({
+         origin: '*'
+        }));
+    </pre>
+    </p>
+    <h3>2. What is Express. how it helps you to create a backend application ?</h3>
+    <p>A. <strong>Express.js</strong>
+    is a open source web application framework for node.js that provides a robust set of features for web and mobile applications.<br>
+    * It is used for designing and building web applications quikly and easily.
+    </p>
+    <h3>3. How do you create a simple Express.js application?</h3>
+    <p>A.First install express by using command "npm i express" .<br>Start your text editor of choice and create a file named app.js.
+       <pre>
+        const express = require('express');
+        const app = express();
+       app.get('/', function (req, res) {
+       res.send('Hello World!');
+    });
+       app.listen(3000, function () {
+        console.log('Example app listening on port 3000!');
+    });
+       </pre>
+    </p>
+    <h3>4. Implementation of all type of exports in backend application</h3>
+    <p>A. There are two types of exports.<br>
+        1.Named export,<br>
+        2.Default export.<br>
+        <strong>Example for both:</strong><br>
+        <pre>
+            // This is main.js
+            function add(x, y) {
+                return x + y;
+             }
+             function sub(x, y) {
+                return x - y;
+             }
+             module.exports = add;
+             module.exports = { sub };
+
+            //This is app.js
+
+            const f = require('./func');
+            app.use("/")
+            const result = f.add(10, 5);
+            console.log('The result is:', result);
+        </pre>
+    </p>
+    <h3>5. Explain min 5 status codes gets used in Backend development ?</h3>
+    <p>A. Status codes</p>
+    <ul>
+        <li>200:"ok" Successfull;</li>
+        <li>400: Bad Request;</li>
+        <li>401: Unauthorized;</li>
+        <li>404: Not Found;</li>
+        <li>500 — Internal Server Error;</li>
+    </ul>
+    <h3>6. Difference between HTTP and HTTPS ?</h3>
+    <p>A. Difference between HTTP and HTTPS :</p>
+    <table>
+        <tr>
+            <th>S.No</th>
+            <th>HTTP</th>
+            <th>HTTPS</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>HTTP stands for HyperText Transfer Protocol.</td>
+            <td>HTTPS for HyperText Transfer Protocol Secure.</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>In HTTP, URL begins with “http://”.</td>
+            <td>HTTPs uses 443 port number for communication.</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>HTTP is considered to be unsecure.</td>
+            <td>HTTPs is considered as secure.</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>HTTP works at Application Layer.</td>
+            <td>HTTPS works at Transport Layer.</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>In HTTP, Encryption is absent.</td>
+            <td>Encryption is present in HTTPS.</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>HTTP does not improve search ranking</td>
+            <td>HTTP does not improve search ranking</td>
+        </tr>
+    </table>
+    <h3>7. What are JWT tokens?</h3>
+    <p>A. <strong>JWT tokens: </strong>
+        <ul>
+            <li>JWT stands for JSON Web Token.</li>
+            <li>To acheive authentication in the API's, we use JWT tokens.</li>
+            <li>When any user logs-in by giving its username and password, then we will receive the username and password in the request body of the API.</li>
+            <li>Then using username and password we will create one token and assign it to the user.</li>
+            <li>Then whenever this user will be calling any API,then this token will be passed from front-end application,then from backend application we will verify this token is valid or not.</li>
+        </ul>
+    </p>
+</body>
+</html>
